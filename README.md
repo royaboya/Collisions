@@ -1,2 +1,2 @@
 # Pygame Objects
-Testing collisions in pygame using pymunklfor physics
+Testing collisions in pygame using pymunk for physics
