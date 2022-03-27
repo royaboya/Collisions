@@ -30,8 +30,14 @@ def create_floor(space: pymunk.Space, window: pygame.display, mouse_pos: tuple):
     return floor_shape
 
 def draw_floor(floors: list, window: pygame.display, color: tuple, c_mouse_pos: tuple):
-    for floor in floors:
+    for floor in floors: # bad loop
         width = window.get_width()
         mouse_y = c_mouse_pos[1]
         box = pygame.Rect((0,mouse_y), (width, mouse_y))
         pygame.draw.rect(window, color, box)
+
+def create_segment():
+    pass
+
+def draw_segment():
+    pass
