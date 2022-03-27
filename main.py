@@ -2,7 +2,6 @@ import pygame, sys, pymunk
 import constants
 from helper import *
 
-
 class App:
     def __init__(self):
         pygame.init()
@@ -36,6 +35,14 @@ class App:
                                     self.space, self.window, self.floor_position
                                 )
                             )
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_z and len(self.objects) > 0:
+                        self.objects.pop(0)
+                    elif event.key == pygame.K_x:
+                        self.objects.clear()
+                    elif event.key == pygame.K_c:
+                        self.floors.clear()
+
 
             pygame.display.update()
             self.window.fill("white")
@@ -43,6 +50,7 @@ class App:
             draw_floor(self.floors, self.window, constants.RED, self.floor_position)
             self.space.step(1 / 60)
             self.clock.tick(60)
+            print(len(self.objects))
 
         pygame.quit()
         sys.exit()
