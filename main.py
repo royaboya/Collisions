@@ -40,8 +40,9 @@ class App:
                         self.objects.pop(0)
                     elif event.key == pygame.K_x:
                         self.objects.clear()
-                    elif event.key == pygame.K_c:
-                        self.floors.clear()
+                    # not working
+                    # elif event.key == pygame.K_c:
+                    #     self.floors.clear()
 
 
             pygame.display.update()
@@ -50,7 +51,7 @@ class App:
             draw_floor(self.floors, self.window, constants.RED, self.floor_position)
             self.space.step(1 / 60)
             self.clock.tick(60)
-            print(len(self.objects))
+            print(len(self.floors))
 
         pygame.quit()
         sys.exit()
