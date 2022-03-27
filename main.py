@@ -23,11 +23,11 @@ class App:
                 if event.type == pygame.QUIT:
                     self.running = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    if event.button == 1:
+                    if event.button == constants.LEFT_CLICK:
                         x = pygame.mouse.get_pos()[0]
                         y = pygame.mouse.get_pos()[1]
                         self.objects.append(add_obj(self.space, x, y))
-                    elif event.button == 3:
+                    elif event.button == constants.RIGHT_CLICK:
                         if len(self.floors) == 0:
                             self.floor_position = pygame.mouse.get_pos()
                             self.floors.append(
