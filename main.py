@@ -1,6 +1,8 @@
 import pygame, sys, pymunk
 import constants
-from helper import *
+from create import *
+from draw import *
+
 
 class App:
     def __init__(self):
@@ -36,14 +38,13 @@ class App:
                                 )
                             )
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_z and len(self.objects) > 0:
+                    not_empty = len(self.objects) > 0
+                    if event.key == pygame.K_z and not_empty:
                         self.objects.pop(0)
-                    elif event.key == pygame.K_x:
-                        self.objects.clear()
-                    # not working
-                    # elif event.key == pygame.K_c:
-                    #     self.floors.clear()
-
+                    elif event.key == pygame.K_x and not_empty:
+                        self.space.remove(self.objects.pop(0))
+                    elif event.key == pygame.K_c and not_empty:
+                        self.space.remove(self.floors.pop(0))
 
             pygame.display.update()
             self.window.fill("white")
